@@ -16,12 +16,17 @@ module.exports = ({ env }) => ({
   connection: {
     client: "postgres",
     connection: {
-      host: env("DATABASE_HOST",),
-      port: env.int("DATABASE_PORT"),
-      database: env("DATABASE_NAME"),
-      user: env("DATABASE_USERNAME"),
-      password: env("DATABASE_PASSWORD"),
-      ssl: env("DATABASE_SSL", true),
+      host: env(
+        "DATABASE_HOST",
+        "dpg-ceve6g94reb4eatdnfg0-a.singapore-postgres.render.com"
+      ),
+      port: env.int("DATABASE_PORT", 5432),
+      database: env("DATABASE_NAME", "store_q82h"),
+      user: env("DATABASE_USERNAME", "admin"),
+      password: env("DATABASE_PASSWORD", "jI5tS91sDaMmKHWtX5tjkODxT4vRqkkC"),
+      schema: env("DATABASE_SCHEMA", "public"), // Not required
+      ssl: env('DATABASE_SSL', false)
     },
+    debug: false,
   },
 });
